@@ -3,28 +3,26 @@ graft src
 graft ci
 graft tests
 
+include AUTHORS.rst
 include .bumpversion.cfg
-include .coveragerc
+include CHANGELOG.rst
+include codecov.yml
+include CONTRIBUTING.rst
 include .cookiecutterrc
 include .editorconfig
-include .isort.cfg
-include .readthedocs.yml
 include .flake8
-include bandit.yml
-include pyproject.toml
-include codecov.yml
-
-
-include AUTHORS.rst
-include CHANGELOG.rst
-include CONTRIBUTING.rst
+include flake8.ini
 include LICENSE
+include pytest.ini
+include pyproject.toml
 include README.rst
-include TODO.rst
+include readthedocs.yml
 include requirements.txt
 include requirements-dev.txt
+include TODO.rst
+include tox.ini
+include .travis.yml
 
-include tox.ini .travis.yml
 
 prune __pycache__
 prune .ropeproject

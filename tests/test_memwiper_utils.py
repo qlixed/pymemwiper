@@ -1,9 +1,7 @@
-import pytest  # noqa: F401
-
+import pytest
 import memwiper.utils as mwutils
 
 UNICODE_KIND = ["Wide Char", "1 Byte", "2 Byte", "4 Byte"]
-
 UNICODE_WIDTH = {"1 Byte": 1, "2 Byte": 2, "4 Byte": 4}
 
 # AFAIK the Wide Char is only used as representation on

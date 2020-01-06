@@ -1,27 +1,19 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
+from __future__ import print_function, absolute_import
 
 import io
 import os
 import re
 from glob import glob
-from os.path import basename
-from os.path import dirname
-from os.path import join
-from os.path import relpath
-from os.path import splitext
+from os.path import join, dirname, relpath, basename, splitext
 
-from setuptools import Extension
-from setuptools import find_packages
-from setuptools import setup
+from setuptools import Extension, setup, find_packages
 
 
 def read(*names, **kwargs):
     with io.open(
-        join(dirname(__file__), *names),
-        encoding=kwargs.get("encoding", "utf8"),
+        join(dirname(__file__), *names), encoding=kwargs.get("encoding", "utf8"),
     ) as fh:
         return fh.read()
 
@@ -33,9 +25,7 @@ if "TOXENV" in os.environ and "SETUPPY_CFLAGS" in os.environ:
     os.environ["CFLAGS"] = os.environ["SETUPPY_CFLAGS"]
 
 if "CFLAGS" in os.environ:
-    os.environ["CFLAGS"] = " ".join(
-        (os.environ["CFLAGS"], "-DMEMWIPER_DEBUG=1")
-    )
+    os.environ["CFLAGS"] = " ".join((os.environ["CFLAGS"], "-DMEMWIPER_DEBUG=1"))
 else:
     os.environ["CFLAGS"] = "-DMEMWIPER_DEBUG=1"
 

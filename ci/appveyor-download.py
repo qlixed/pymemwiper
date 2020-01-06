@@ -8,9 +8,9 @@ Taken from: https://bitbucket.org/ned/coveragepy/src/tip/ci/download_appveyor.py
 """
 from __future__ import unicode_literals
 
-import argparse
 import os
 import zipfile
+import argparse
 
 import requests
 

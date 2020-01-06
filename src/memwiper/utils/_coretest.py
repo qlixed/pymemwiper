@@ -1,11 +1,11 @@
-import codecs
-import getpass
-import multiprocessing
 import os
-import platform
 import shlex
+import codecs
 import shutil
+import getpass
+import platform
 import subprocess
+import multiprocessing
 from sys import exit as sysexit
 
 import memwiper
@@ -67,9 +67,7 @@ def main():
     # "Decoding" the file:
     s1 = codecs.encode(sfromfile, "rot_13")
     # Generating pre-core
-    print(
-        "Generating {f}.{pid}:".format(f=corefn.format(when="pre"), pid=mypid)
-    )
+    print("Generating {f}.{pid}:".format(f=corefn.format(when="pre"), pid=mypid))
     cmd = gdb_cmds
     corename = corefn.format(when="pre")
     print(cmd.format(filename=corename, pid=mypid))
@@ -77,9 +75,7 @@ def main():
     print("Now we're going to overwrite the memory,")
     memwiper.wipeit(s1)
     # Generating pos-core
-    print(
-        "Generating {f}.{pid}:".format(f=corefn.format(when="pos"), pid=mypid)
-    )
+    print("Generating {f}.{pid}:".format(f=corefn.format(when="pos"), pid=mypid))
     corename = corefn.format(when="pos")
     print(cmd.format(filename=corename, pid=mypid))
     subprocess.run(shlex.split(cmd.format(filename=corename, pid=mypid)))

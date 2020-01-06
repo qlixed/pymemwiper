@@ -1,5 +1,4 @@
-import pytest  # noqa: F401
-
+import pytest
 import memwiper
 
 

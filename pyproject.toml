@@ -42,8 +42,17 @@ classifiers = [
 [build-system]
 requires = ["setuptools", "wheel"]  # PEP 508 specifications.
 
+
+# Tools:
+#  Enabled so far:
+#    - Black
+#    - coverage
+#    - isort
+#
+
 [tool.black]
-line-length = 79
+line-length = 90
+target-version= ['py36', 'py37', 'py38', ]
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -58,3 +67,26 @@ exclude = '''
   | dist
 )/
 '''
+
+[tool.coverage]
+    [[tool.coverage.paths]]
+    source = ['src']
+
+    [[tool.coverage.run]]
+    branch = true
+    source = ['src', 'tests']
+    parallel = true
+    omit = ['src/memwiper/utils/_coretest.py']
+
+    [[tool.coverage.report]]
+    show_missing = true
+    precision = 2
+    omit = ['*migrations*']
+
+[tool.isort]
+line_length = 120
+indent = '    '
+multi_line_output = 6
+length_sort = true
+balanced_wrapping = true
+known_first_party = ['memwiper']
